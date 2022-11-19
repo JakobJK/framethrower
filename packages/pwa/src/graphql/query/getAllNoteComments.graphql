@@ -1,0 +1,20 @@
+query getAllNoteComments($noteId: String!, $offset: Int!) {
+  allNoteComments(
+    condition: { noteId: $noteId, status: PUBLISHED }
+    first: 10
+    offset: $offset
+    orderBy: CREATED_AT_ASC
+  ) {
+    nodes {
+      body
+      createdAt
+      updatedAt
+      id
+      profileByProfileId {
+        username
+        avatar
+      }
+    }
+    totalCount
+  }
+}

@@ -1,0 +1,21 @@
+query getAllInstructors {
+  allInstructors(filter: { status: { equalTo: ACTIVE } }) {
+    nodes {
+      banner
+      profileByProfileId {
+        about
+        avatar
+        id
+        firstname
+        isInstructor
+        lastname
+        occupation
+        organisation
+        reel
+        reelDescription
+        username
+      }
+    }
+    totalCount
+  }
+}

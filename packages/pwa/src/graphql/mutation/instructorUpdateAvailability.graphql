@@ -1,0 +1,8 @@
+mutation instructorUpdateAvailability($availability: InstructorAvailability!) {
+  instructorUpdateAvailability(input: { availability_: $availability }) {
+    instructor {
+      availability
+      id
+    }
+  }
+}

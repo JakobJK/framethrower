@@ -1,0 +1,17 @@
+mutation adminUpdatePost($title: String!, $id: UUID!, $body: String!) {
+  adminUpdatePost(input: { title_: $title, id_: $id, body_: $body }) {
+    news {
+      updatedAt
+      title
+      thumbnail
+      status
+      slug
+      profileId
+      nodeId
+      intro
+      id
+      createdAt
+      body
+    }
+  }
+}

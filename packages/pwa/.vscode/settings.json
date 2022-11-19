@@ -1,0 +1,6 @@
+{
+"workbench.editor.enablePreviewFromQuickOpen": false,
+  "prettier.jsxSingleQuote": true,
+  "prettier.singleQuote": true,
+  "prettier.semi": false
+}

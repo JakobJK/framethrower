@@ -1,0 +1,18 @@
+query getAllFeedback($offset: Int!) {
+  allVInstructorFeedbacks(first: 50, offset: $offset) {
+    nodes {
+      username
+      title
+      submissionId
+      startFrame
+      status
+      endFrame
+      id
+      createdAt
+      shortComment
+      avatar
+      animationId
+    }
+    totalCount
+  }
+}

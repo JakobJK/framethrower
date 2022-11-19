@@ -1,0 +1,14 @@
+query getAllVInstructorSettings {
+  allVInstructorSettings {
+    nodes {
+      updatedAt
+      status
+      id
+      createdAt
+      biography
+      banner
+      availability
+      acceptedAgreement
+    }
+  }
+}

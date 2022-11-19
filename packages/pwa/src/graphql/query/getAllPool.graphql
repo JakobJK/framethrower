@@ -1,0 +1,26 @@
+query getAllPool($offset: Int!) {
+  allVInstructorPools(first: 50, offset: $offset, orderBy: CREATED_AT_ASC) {
+    nodes {
+      id
+      thumbnailUrl
+      submissionId
+      createdAt
+      shortComment
+      title
+      animationId
+      avatar
+      endFrame
+      startFrame
+      responseStatus
+      requestStatus
+      latestSubmission
+      username
+      updatedAt
+    }
+    totalCount
+  }
+  currentInstructor {
+    currentlyResponding
+    isTilted
+  }
+}

@@ -1,0 +1,7 @@
+mutation loginByEmail($email: String!, $password: String!) {
+  __typename
+  authenticate(input: { email: $email, password: $password }) {
+    jwtToken
+    __typename
+  }
+}

@@ -1,0 +1,26 @@
+query getOwnNote($submissionId: String!) {
+  allVOwnNotes(
+    orderBy: CREATED_AT_DESC
+    condition: { submissionId: $submissionId, status: PUBLISHED }
+    first: 1
+  ) {
+    nodes {
+      createdAt
+      body
+      id
+      status
+      updatedAt
+      profileByProfileId {
+        id
+        username
+        avatar
+        occupation
+        organisation
+        role
+        isInstructor
+        premiumType
+      }
+      noteComments
+    }
+  }
+}

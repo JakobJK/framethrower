@@ -1,0 +1,15 @@
+query getAllMembers($first: Int!, $offset: Int!) {
+  allVAdminMembers(offset: $offset, first: $first, orderBy: USERNAME_ASC) {
+    nodes {
+      avatar
+      username
+      firstname
+      lastname
+      id
+      createdAt
+      role
+      isInstructor
+    }
+    totalCount
+  }
+}

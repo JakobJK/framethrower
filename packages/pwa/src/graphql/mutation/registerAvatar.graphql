@@ -1,0 +1,7 @@
+mutation registerAvatar($avatar: String!) {
+  registerNewAvatar(input: { avatar_: $avatar }) {
+    profile {
+      avatar
+    }
+  }
+}

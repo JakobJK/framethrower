@@ -1,0 +1,8 @@
+mutation registerNoteComment($noteId: String!, $body: String!) {
+  __typename
+  registerNoteComment(input: { noteId: $noteId, body: $body }) {
+    noteComment {
+      id
+    }
+  }
+}

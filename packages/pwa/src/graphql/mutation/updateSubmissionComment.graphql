@@ -1,0 +1,13 @@
+mutation updateOwnSubmissionComment(
+  $comment: String!
+  $shortComment: String!
+  $id: String!
+) {
+  updateOwnSubmissionComment(
+    input: { comment_: $comment, shortComment_: $shortComment, id_: $id }
+  ) {
+    submission {
+      updatedAt
+    }
+  }
+}

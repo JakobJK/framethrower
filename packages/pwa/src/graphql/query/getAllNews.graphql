@@ -1,0 +1,15 @@
+query getAllNews($offset: Int!) {
+  allVPosts(first: 10, offset: $offset, orderBy: CREATED_AT_DESC) {
+    nodes {
+      body
+      thumbnail
+      createdAt
+      title
+      id
+      slug
+      intro
+      proContent
+    }
+    totalCount
+  }
+}

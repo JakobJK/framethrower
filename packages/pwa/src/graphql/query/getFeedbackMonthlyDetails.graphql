@@ -1,0 +1,19 @@
+query getFeedbackMonthlyDetails($month: Int!, $year: Int!, $profileId: UUID!) {
+  allVAdminFeedbackOverviews(
+    condition: { year: $year, month: $month, profileId: $profileId }
+  ) {
+    nodes {
+      username
+      avatar
+      year
+      submissionId
+      profileId
+      month
+      id
+      title
+      feedbackRequestId
+      createdAt
+      animationId
+    }
+  }
+}

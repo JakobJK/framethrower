@@ -1,0 +1,12 @@
+query getAllCompanies($first: Int!, $offset: Int!) {
+  allCompanies(offset: $offset, first: $first, orderBy: NAME_ASC) {
+    nodes {
+      name
+      nameUrlSafe
+      link
+      logo
+      id
+    }
+    totalCount
+  }
+}

@@ -1,0 +1,8 @@
+mutation UpdateOwnNote($id: String!, $paragraph: String!, $body: String!) {
+  updateOwnNote(input: { body_: $body, paragraph_: $paragraph, id_: $id }) {
+    note {
+      id
+      updatedAt
+    }
+  }
+}

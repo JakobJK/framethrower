@@ -1,0 +1,9 @@
+mutation registerNewsComment($body: String!, $newsId: UUID) {
+  registerNewsComment(input: { body_: $body, newsId_: $newsId }) {
+    newsComment {
+      body
+      createdAt
+      id
+    }
+  }
+}

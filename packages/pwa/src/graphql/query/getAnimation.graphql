@@ -1,0 +1,31 @@
+query getAnimation($animationId: String!, $submissionId: String!) {
+  allVAnimations(
+    condition: { animationId: $animationId, submissionId: $submissionId }
+  ) {
+    nodes {
+      audio
+      frameRate
+      endFrame
+      comment
+      avatar
+      animationId
+      startFrame
+      createdAt
+      updatedAt
+      occupation
+      organisation
+      thumbnailUrl
+      profileId
+      title
+      username
+      videoUrl
+      isLatest
+      instructor
+      premiumType
+      role
+      currentProfileHasReplied
+      profeedback
+      profeedbackStatus
+    }
+  }
+}

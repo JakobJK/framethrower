@@ -1,0 +1,11 @@
+query getFrontpageHeadlines {
+  allHeadlines(first: 6, orderBy: CREATED_AT_DESC) {
+    nodes {
+      id
+      createdAt
+      link
+      thumbnail
+      title
+    }
+  }
+}

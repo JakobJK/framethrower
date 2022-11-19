@@ -1,0 +1,8 @@
+mutation updateAnimationTitle($animationId: String!, $title: String!) {
+  updateAnimationTitle(input: { animationId_: $animationId, title_: $title }) {
+    animation {
+      title
+      id
+    }
+  }
+}

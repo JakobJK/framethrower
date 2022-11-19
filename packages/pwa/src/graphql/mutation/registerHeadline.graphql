@@ -1,0 +1,14 @@
+mutation registerHeadline($thumbnail: String!, $link: String!, $title: String) {
+  __typename
+  registerHeadline(
+    input: { thumbnail_: $thumbnail, link_: $link, title_: $title }
+  ) {
+    headline {
+      id
+      createdAt
+      link
+      thumbnail
+      title
+    }
+  }
+}

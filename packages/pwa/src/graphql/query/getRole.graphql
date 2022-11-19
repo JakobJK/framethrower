@@ -1,0 +1,11 @@
+query getRole {
+  currentProfile {
+    id
+    role
+    premiumType
+    isInstructor
+    username
+    avatar
+    getAdminCompany
+  }
+}

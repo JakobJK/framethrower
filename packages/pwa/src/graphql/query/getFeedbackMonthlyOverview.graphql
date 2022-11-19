@@ -1,0 +1,22 @@
+query getFeedbackMonthlyOverview($year: Int!, $month: Int!, $offset: Int!) {
+  allVAdminFeedbackOverviewCollapseds(
+    orderBy: COUNT_DESC
+    condition: { year: $year, month: $month }
+    first: 50
+    offset: $offset
+  ) {
+    nodes {
+      avatar
+      profileId
+      year
+      username
+      month
+      count
+      avatar
+    }
+    totalCount
+  }
+  allVAdminFeedbackOverviews(condition: { year: $year, month: $month }) {
+    totalCount
+  }
+}

@@ -1,0 +1,8 @@
+mutation UpdateOwnNewsComment($id: UUID!, $body: String!) {
+  updateOwnNewsComment(input: { body_: $body, id_: $id }) {
+    newsComment {
+      id
+      updatedAt
+    }
+  }
+}

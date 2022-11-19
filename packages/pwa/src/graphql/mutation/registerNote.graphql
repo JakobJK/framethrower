@@ -1,0 +1,17 @@
+mutation registerNote(
+  $submissionId: String!
+  $body: String!
+  $paragraph: String!
+) {
+  registerNote(
+    input: { submissionId: $submissionId, body: $body, paragraph: $paragraph }
+  ) {
+    note {
+      id
+      createdAt
+      body
+      submissionId
+      profileId
+    }
+  }
+}

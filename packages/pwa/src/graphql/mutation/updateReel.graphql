@@ -1,0 +1,10 @@
+mutation updateReel($reelDescription: String, $reel: String) {
+  __typename
+  registerReel(input: { reelDescription_: $reelDescription, reel_: $reel }) {
+    clientMutationId
+    profile {
+      reel
+      reelDescription
+    }
+  }
+}

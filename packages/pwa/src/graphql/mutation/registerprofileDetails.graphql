@@ -1,0 +1,26 @@
+mutation registerProfileDetails(
+  $organisation: String
+  $occupation: String
+  $lastname: String
+  $firstname: String
+  $about: String
+) {
+  __typename
+  registerProfileDetails(
+    input: {
+      organisation_: $organisation
+      occupation_: $occupation
+      lastname_: $lastname
+      firstname_: $firstname
+      about_: $about
+    }
+  ) {
+    profile {
+      about
+      firstname
+      lastname
+      occupation
+      organisation
+    }
+  }
+}

@@ -1,0 +1,7 @@
+mutation registerNewBanner($banner: String!) {
+  registerNewBanner(input: { banner_: $banner }) {
+    profile {
+      banner
+    }
+  }
+}

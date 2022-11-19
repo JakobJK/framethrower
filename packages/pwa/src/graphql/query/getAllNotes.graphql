@@ -1,0 +1,27 @@
+query getAllNotes($offset: Int!, $submissionId: String!) {
+  allVNotes(
+    first: 10
+    offset: $offset
+    orderBy: CREATED_AT_DESC
+    condition: { submissionId: $submissionId, status: PUBLISHED }
+  ) {
+    nodes {
+      createdAt
+      body
+      id
+      updatedAt
+      profileByProfileId {
+        id
+        username
+        avatar
+        occupation
+        organisation
+        role
+        isInstructor
+        premiumType
+      }
+      noteComments
+    }
+    totalCount
+  }
+}

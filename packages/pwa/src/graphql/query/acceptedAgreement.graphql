@@ -1,0 +1,8 @@
+query acceptedAgreement {
+  __typename
+  currentProfile {
+    instructorByProfileId {
+      acceptedAgreement
+    }
+  }
+}

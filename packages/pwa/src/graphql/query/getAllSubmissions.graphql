@@ -1,0 +1,17 @@
+query getAllSubmissions($animationId: String!) {
+  allSubmissions(
+    condition: { animationId: $animationId, status: PUBLISHED }
+    first: 10
+    orderBy: CREATED_AT_DESC
+  ) {
+    nodes {
+      shortComment
+      createdAt
+      startFrame
+      endFrame
+      id
+      thumbnailUrl
+      hasProFeedback
+    }
+  }
+}

@@ -1,0 +1,7 @@
+mutation companyAdminRemovePremiumFromGroup($premiumId: UUID!) {
+  companyAdminRemovePremiumFromGroup(input: { premiumId_: $premiumId }) {
+    companyProGroupByCompanyGroupId {
+      groupName
+    }
+  }
+}

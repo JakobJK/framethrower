@@ -1,0 +1,18 @@
+query getAllPostComments($slug: String!, $offset: Int!) {
+  newsBySlug(slug: $slug) {
+    newsCommentsByNewsId(first: 10, offset: $offset) {
+      totalCount
+      nodes {
+        updatedAt
+        profileId
+        id
+        createdAt
+        body
+        profileByProfileId {
+          avatar
+          username
+        }
+      }
+    }
+  }
+}

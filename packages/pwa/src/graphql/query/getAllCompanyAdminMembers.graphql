@@ -1,0 +1,14 @@
+query getAllCompanyAdminMembers($offset: Int!) {
+  allVCompanyAdminMembers(first: 50, offset: $offset) {
+    nodes {
+      username
+      lastname
+      groupName
+      groupId
+      firstname
+      avatar
+      premiumId
+    }
+    totalCount
+  }
+}

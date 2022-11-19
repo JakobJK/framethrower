@@ -1,0 +1,13 @@
+mutation adminChangeInstructorStatus(
+  $profileId: UUID!
+  $instructorStatus: InstructorStatus!
+) {
+  adminEditInstructorStatus(
+    input: { instructorStatus_: $instructorStatus, profileId_: $profileId }
+  ) {
+    clientMutationId
+    instructor {
+      status
+    }
+  }
+}

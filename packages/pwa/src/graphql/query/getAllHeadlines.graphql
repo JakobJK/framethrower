@@ -1,0 +1,12 @@
+query getAllHeadlines($offset: Int!) {
+  allHeadlines(first: 42, offset: $offset, orderBy: CREATED_AT_DESC) {
+    nodes {
+      id
+      createdAt
+      link
+      thumbnail
+      title
+    }
+    totalCount
+  }
+}

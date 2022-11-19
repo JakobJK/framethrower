@@ -1,0 +1,75 @@
+query getFullProfile($username: String!) {
+  getProfileByUsername(_username: $username) {
+    about
+    firstname
+    lastname
+    occupation
+    organisation
+    reel
+    avatar
+    banner
+    createdAt
+    animationsByProfileId(first: 3) {
+      nodes {
+        id
+        title
+        profileId
+        submissionsByAnimationId(first: 1, orderBy: CREATED_AT_DESC) {
+          nodes {
+            startFrame
+            endFrame
+            thumbnailUrl
+            comment
+            createdAt
+            id
+            notesBySubmissionId {
+              totalCount
+            }
+          }
+          totalCount
+        }
+      }
+      totalCount
+    }
+    notesByProfileId(first: 5, orderBy: CREATED_AT_DESC) {
+      nodes {
+        paragraph
+        createdAt
+        submissionBySubmissionId {
+          id
+          animationId
+          thumbnailUrl
+          comment
+          createdAt
+          animationByAnimationId {
+            title
+            profileByProfileId {
+              avatar
+              username
+            }
+          }
+        }
+        id
+      }
+      totalCount
+    }
+    profileSocialsByProfileId {
+      nodes {
+        linkedin
+        instagram
+        facebook
+        artstation
+        profileId
+        twitter
+        vimeo
+        www
+        youtube
+      }
+    }
+    isInstructor
+    premiumType
+    username
+    role
+    reelDescription
+  }
+}

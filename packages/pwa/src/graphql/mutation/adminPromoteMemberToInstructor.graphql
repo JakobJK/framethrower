@@ -1,0 +1,7 @@
+mutation adminPromoteToInstructor($profileId: UUID!) {
+  adminPromoteToInstructor(input: { profileId_: $profileId }) {
+    instructor {
+      id
+    }
+  }
+}

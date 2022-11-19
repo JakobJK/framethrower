@@ -1,0 +1,7 @@
+mutation companyDeleteGroup($id: UUID!) {
+  companyDeleteGroup(input: { groupId_: $id }) {
+    companyProGroup {
+      groupName
+    }
+  }
+}

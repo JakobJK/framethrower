@@ -1,0 +1,26 @@
+query getCompanyAdminPage {
+  allVCompanyAdmins(first: 1) {
+    nodes {
+      createdAt
+      address
+      description
+      id
+      link
+      logo
+      name
+      nameUrlSafe
+      updatedAt
+      members
+      groups
+      companyById {
+        companyProGroupsByCompanyId {
+          nodes {
+            groupName
+            id
+            slug
+          }
+        }
+      }
+    }
+  }
+}

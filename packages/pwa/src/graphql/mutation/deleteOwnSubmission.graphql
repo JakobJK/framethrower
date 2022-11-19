@@ -1,0 +1,5 @@
+mutation deleteOwnSubmission($submissionId: String!) {
+  deleteOwnSubmission(input: { submissionId: $submissionId }) {
+    string
+  }
+}

@@ -1,0 +1,7 @@
+mutation deleteNoteComment($id: UUID!) {
+  deleteOwnNoteComment(input: { _id: $id }) {
+    noteComment {
+      id
+    }
+  }
+}

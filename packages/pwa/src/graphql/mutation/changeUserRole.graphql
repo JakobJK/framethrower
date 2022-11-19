@@ -1,0 +1,7 @@
+mutation changeUserRole($userId: UUID!, $role: UserRole!) {
+  changeUserRole(input: { userid_: $userId, role_: $role }) {
+    profile {
+      role
+    }
+  }
+}

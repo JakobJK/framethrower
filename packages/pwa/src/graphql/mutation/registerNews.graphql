@@ -1,0 +1,31 @@
+mutation registerNews(
+  $title: String!
+  $paragraph: String!
+  $body: String!
+  $thumbnail: String!
+  $proContent: String
+  $videoUrl: String
+) {
+  registerNews(
+    input: {
+      title_: $title
+      intro_: $paragraph
+      body_: $body
+      thumbnail_: $thumbnail
+      proContent_: $proContent
+      videoUrl_: $videoUrl
+    }
+  ) {
+    news {
+      id
+      body
+      createdAt
+      intro
+      nodeId
+      profileId
+      slug
+      thumbnail
+      title
+    }
+  }
+}

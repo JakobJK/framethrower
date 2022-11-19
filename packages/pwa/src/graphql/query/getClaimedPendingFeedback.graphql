@@ -1,0 +1,32 @@
+query getClaimedPendingFeedback {
+  getClaimedPendingFeedback {
+    id
+    createdAt
+    status
+    submissionBySubmissionId {
+      animationId
+      id
+      shortComment
+      thumbnailUrl
+      videoUrl
+      frameRate
+      endFrame
+      startFrame
+      updatedAt
+      audio
+      animationByAnimationId {
+        title
+        profileByProfileId {
+          avatar
+          username
+        }
+        submissionsByAnimationId {
+          totalCount
+        }
+      }
+      notesBySubmissionId {
+        totalCount
+      }
+    }
+  }
+}

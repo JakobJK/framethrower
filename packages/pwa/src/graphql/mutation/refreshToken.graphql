@@ -1,0 +1,5 @@
+mutation refreshToken {
+  refreshJwtToken(input: {}) {
+    jwtToken
+  }
+}

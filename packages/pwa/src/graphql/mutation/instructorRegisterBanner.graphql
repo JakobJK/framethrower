@@ -1,0 +1,8 @@
+mutation instructorRegisterBanner($banner: String!) {
+  instructorRegisterBanner(input: { banner_: $banner }) {
+    instructor {
+      id
+      banner
+    }
+  }
+}

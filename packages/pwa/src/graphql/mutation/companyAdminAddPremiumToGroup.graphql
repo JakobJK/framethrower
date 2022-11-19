@@ -1,0 +1,10 @@
+mutation companyAdminAddPremiumToGroup($groupId: UUID!, $premiumId: UUID!) {
+  companyAdminAddPremiumToGroup(
+    input: { groupId_: $groupId, premiumId_: $premiumId }
+  ) {
+    companyGroupPremium {
+      premiumId
+      companyGroupId
+    }
+  }
+}

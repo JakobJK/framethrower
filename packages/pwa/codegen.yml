@@ -1,0 +1,16 @@
+overwrite: true
+schema: "http://local-api.framethrower.io/graphql"
+documents: "src/**/*.graphql"
+generates:
+  src/graphql/generated/hooks.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-react-apollo"
+  src/graphql/generated/types.tsx:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+  # ./graphql.schema.json:
+  #   plugins:
+  #     - "introspection"

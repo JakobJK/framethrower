@@ -1,0 +1,8 @@
+mutation instructorUpdateBio($bio: String!) {
+  instructorUpdateBio(input: { biography_: $bio }) {
+    instructor {
+      id
+      biography
+    }
+  }
+}

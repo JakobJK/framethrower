@@ -1,0 +1,7 @@
+mutation deleteOwnNote($id: String!) {
+  deleteOwnNote(input: { _id: $id }) {
+    note {
+      status
+    }
+  }
+}

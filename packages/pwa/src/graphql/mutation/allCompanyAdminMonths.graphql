@@ -1,0 +1,11 @@
+query allCompanyAdminMonths($groupId: UUID!) {
+  allVCompanyAdminMonths(filter: { groupId: { equalTo: $groupId } }) {
+    nodes {
+      year
+      id
+      month
+      groupId
+      amountFeedbacks
+    }
+  }
+}

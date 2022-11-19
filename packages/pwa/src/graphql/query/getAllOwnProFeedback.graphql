@@ -1,0 +1,15 @@
+query getAllOwnProFeedback {
+  allVProOwnFeedbacks(orderBy: CREATED_AT_DESC) {
+    nodes {
+      id
+      animationId
+      avatar
+      latestSubmissionId
+      responseStatus
+      submissionId
+      title
+      createdAt
+      username
+    }
+  }
+}

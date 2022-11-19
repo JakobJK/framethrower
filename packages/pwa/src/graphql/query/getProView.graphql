@@ -1,0 +1,34 @@
+query getProView {
+  allVProMemberships {
+    nodes {
+      username
+      builtInFeedback
+      id
+      purchasedFeedback
+      dailyPosts
+      logo
+      link
+      maxFrames
+      premiumName
+      status
+      concurrentProjects
+      companyName
+      createdAt
+      updatedAt
+      companyProGroupByCompanyProGroupId {
+        companyGroupMonthsByGroupId(
+          filter: { amountFeedbacks: { greaterThan: 0 } }
+        ) {
+          nodes {
+            amountFeedbacks
+            createdAt
+            month
+            updatedAt
+            year
+          }
+        }
+        groupName
+      }
+    }
+  }
+}

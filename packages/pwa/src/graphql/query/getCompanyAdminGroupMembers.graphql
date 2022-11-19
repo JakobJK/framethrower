@@ -1,0 +1,17 @@
+query getCompanyAdminMembers($offset: Int!, $groupId: UUID!) {
+  allVCompanyAdminMembers(
+    first: 50
+    offset: $offset
+    condition: { groupId: $groupId }
+  ) {
+    nodes {
+      username
+      premiumId
+      lastname
+      groupName
+      firstname
+      avatar
+    }
+    totalCount
+  }
+}

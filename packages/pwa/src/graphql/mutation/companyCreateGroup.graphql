@@ -1,0 +1,14 @@
+mutation companyCreateGroup($name: String!, $description: String) {
+  companyCreateGroup(input: { name_: $name, description_: $description }) {
+    clientMutationId
+    companyProGroup {
+      companyId
+      createdAt
+      description
+      groupName
+      id
+      nodeId
+      updatedAt
+    }
+  }
+}

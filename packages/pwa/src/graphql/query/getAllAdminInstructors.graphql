@@ -1,0 +1,19 @@
+query getAllAdminInstructors($first: Int!, $offset: Int!) {
+  __typename
+  allVAdminInstructors(first: $first, offset: $offset) {
+    nodes {
+      status
+      availability
+      profileByProfileId {
+        id
+        username
+        firstname
+        lastname
+        avatar
+        organisation
+        occupation
+      }
+    }
+    totalCount
+  }
+}

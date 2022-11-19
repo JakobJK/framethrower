@@ -1,0 +1,7 @@
+mutation companyAdminRemoveMonthFromGroup($monthId: UUID!) {
+  companyAdminRemoveMonthFromGroup(input: { monthId_: $monthId }) {
+    companyGroupMonth {
+      groupId
+    }
+  }
+}

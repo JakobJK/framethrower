@@ -1,0 +1,16 @@
+mutation claimFeedback($feedbackRequestId: String!, $submissionId: String!) {
+  __typename
+  claimFeedback(
+    input: {
+      submissionId_: $submissionId
+      feedbackRequestId_: $feedbackRequestId
+    }
+  ) {
+    feedbackResponse {
+      createdAt
+      status
+      id
+      profileId
+    }
+  }
+}

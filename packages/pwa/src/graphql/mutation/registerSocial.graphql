@@ -1,0 +1,35 @@
+mutation registerSocial(
+  $www: String
+  $youtube: String
+  $vimeo: String
+  $twitter: String
+  $instagram: String
+  $linkedin: String
+  $facebook: String
+  $artstation: String
+) {
+  registerSocial(
+    input: {
+      www_: $www
+      youtube_: $youtube
+      vimeo_: $vimeo
+      twitter_: $twitter
+      instagram_: $instagram
+      linkedin_: $linkedin
+      facebook_: $facebook
+      artstation_: $artstation
+    }
+  ) {
+    profileSocial {
+      linkedin
+      instagram
+      facebook
+      artstation
+      profileId
+      twitter
+      vimeo
+      www
+      youtube
+    }
+  }
+}

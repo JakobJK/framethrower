@@ -1,0 +1,17 @@
+query getFeedback($submissionId: String!) {
+  allVFeedbacks(condition: { submissionId: $submissionId }, first: 1) {
+    nodes {
+      avatar
+      createdAt
+      id
+      allowed
+      link
+      profileId
+      status
+      submissionId
+      thumbnail
+      updatedAt
+      username
+    }
+  }
+}

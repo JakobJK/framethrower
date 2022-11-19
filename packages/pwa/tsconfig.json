@@ -1,0 +1,15 @@
+{
+  "baseUrl": "src/",
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./dist/",
+    "noImplicitAny": true,
+    "module": "es6",
+    "moduleResolution": "node",
+    "target": "es5",
+    "jsx": "react",
+    "strict": true,
+    "allowJs": true
+  },
+  "include": ["src/**/*.png","src/**/*.ts", "tests/**/*.ts"],
+}

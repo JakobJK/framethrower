@@ -1,0 +1,12 @@
+mutation registerProfile(
+  $username: String!
+  $email: String!
+  $password: String!
+) {
+  __typename
+  registerProfile(
+    input: { username: $username, email: $email, pass: $password }
+  ) {
+    clientMutationId
+  }
+}

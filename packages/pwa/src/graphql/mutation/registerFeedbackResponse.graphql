@@ -1,0 +1,8 @@
+mutation registerFeedbackResponse($thumbnail: String!, $link: String!) {
+  __typename
+  registerFeedbackResponse(input: { thumbnail_: $thumbnail, link_: $link }) {
+    animation {
+      id
+    }
+  }
+}

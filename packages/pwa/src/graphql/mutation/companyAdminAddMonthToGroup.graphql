@@ -1,0 +1,19 @@
+mutation companyAdminAddMonthToGroup(
+  $year: Int!
+  $month: Int!
+  $groupId: UUID!
+  $amountFeedbacks: Int!
+) {
+  companyAdminAddMonthToGroup(
+    input: {
+      year_: $year
+      month_: $month
+      groupId_: $groupId
+      amountFeedbacks_: $amountFeedbacks
+    }
+  ) {
+    companyGroupMonth {
+      id
+    }
+  }
+}

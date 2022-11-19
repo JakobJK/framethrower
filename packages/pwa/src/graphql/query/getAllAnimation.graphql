@@ -1,0 +1,29 @@
+query getAllAnimation($offset: Int!) {
+  allVAnimationPreviews(first: 24, offset: $offset, orderBy: UPDATED_AT_DESC) {
+    nodes {
+      updatedAt
+      title
+      thumbnailUrl
+      submissions
+      submissionId
+      profileId
+      id
+      createdAt
+      shortComment
+      startFrame
+      endFrame
+      notes
+      profileByProfileId {
+        id
+        avatar
+        premiumType
+        role
+        username
+        isInstructor
+      }
+      feedbackCount
+      audio
+    }
+    totalCount
+  }
+}

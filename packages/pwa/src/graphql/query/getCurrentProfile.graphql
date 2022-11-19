@@ -1,0 +1,27 @@
+query getCurrentProfile {
+  currentProfile {
+    firstname
+    lastname
+    username
+    avatar
+    id
+    occupation
+    organisation
+    reel
+    reelDescription
+    about
+    banner
+    isInstructor
+    premiumType
+    profileSocialByProfileId {
+      youtube
+      www
+      vimeo
+      twitter
+      linkedin
+      instagram
+      facebook
+      artstation
+    }
+  }
+}

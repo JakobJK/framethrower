@@ -1,0 +1,11 @@
+query getAllCompanyAdminGroups($offset: Int!) {
+  allVCompanyAdminGroups(first: 10, offset: $offset) {
+    nodes {
+      slug
+      totalmembers
+      id
+      groupName
+      description
+    }
+  }
+}

@@ -1,0 +1,5 @@
+mutation deleteOwnAnimation($animationId: String!) {
+  deleteOwnAnimation(input: { animationId: $animationId }) {
+    string
+  }
+}
