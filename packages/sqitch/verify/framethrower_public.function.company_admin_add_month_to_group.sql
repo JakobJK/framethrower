@@ -1,0 +1,7 @@
+-- Verify framethrower:framethrower_public.function.company_admin_add_month_to_group on pg
+
+BEGIN;
+
+-- XXX Add verifications here.
+
+ROLLBACK;

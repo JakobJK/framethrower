@@ -1,0 +1,341 @@
+service: serverless
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:stage, 'staging'}
+  region: ${opt:region, 'us-east-1'}
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+      - ses:SendMail
+      Resource: arn:aws:ses:*
+  iam:
+    role:
+      managedPolicies:
+        - 'arn:aws:iam::aws:policy/AmazonS3FullAccess'
+        - 'arn:aws:iam::aws:policy/AmazonSESFullAccess'
+      statements:
+        - Effect: 'Allow'
+          Action: 's3:*'
+          Resource: arn:aws:s3:::ft-{opt:stage, 'staging'}-animation/*
+
+  vpc:
+    securityGroupIds:
+      - ${env:RDS_SG}  # RDS SG - aws_security_group.lambda.id
+      - ${env:LAMBDA_SG} # Lambda SG - aws_security_group.lambda.id
+    subnetIds:
+      - ${env:PRIV_SUBNET_B_SG} # Priv Subnet A SG - aws_subnet_private_a
+      - ${env:PRIV_SUBNET_B_SG} # Priv Subnet B SG - aws_subnet_private_b
+  environment:
+    FONTCONFIG_PATH: /opt/etc/fonts
+    PGHOST: ${env:PGHOST}
+    PGPORT: ${env:PGPORT}
+    PGUSER: ${env:PGUSER}
+    PRO_MEMBERSHIP_PRICE_ID: ${env:PRO_MEMBERSHIP_PRICE_ID}
+    PGDATABASE: ${env:PGDATABASE}
+    PGPASSWORD: ${env:PGPASSWORD}
+    JWT_REFRESH_SECRET: ${env:JWT_REFRESH_SECRET}
+    SERVERLESS: ${env:SERVERLESS}
+    JWT_SECRET: ${env:JWT_SECRET}
+    MAYA_JWT_SECRET: ${env:MAYA_JWT_SECRET}
+    STRIPE_SECRET_KEY: ${env:STRIPE_SECRET_KEY}
+    STRIPE_PUBLISHABLE_KEY: ${env:STRIPE_PUBLISHABLE_KEY}
+    STRIPE_WEBHOOK_SECRET: ${env:STRIPE_WEBHOOK_SECRET}
+    PASSWORD_RECOVER_JWT_SECRET: ${env:PASSWORD_RECOVER_JWT_SECRET}
+    UPLOAD_BUCKET: ft-${opt:stage}-animation
+    VIDEO_BUCKET: ft-${opt:stage}-video
+    PRIVATE_BUCKET: ft-${opt:stage}-private
+    STORAGE: ${env:STORAGE}
+    MUX_TOKEN_SECRET: ${env:MUX_TOKEN_SECRET}
+    MUX_TOKEN_ID: ${env:MUX_TOKEN_ID}
+    DISCORD_INSTRUCTOR: ${env:DISCORD_INSTRUCTOR}
+    DISCORD_ANNOUNCEMENT: ${env:DISCORD_ANNOUNCEMENT}
+    ORIGIN: ${env:ORIGIN}
+    DOMAIN: ${env:DOMAIN}
+    REDIS_HOST: ${env:REDIS_HOST} # redis-primary_endpoint_address
+    FFMPEG_PATH: /opt/ffmpeg/ffmpeg
+    FFPROBE_PATH: /opt/ffmpeg/ffprobe
+custom:
+  uploadBucket: ft-${opt:stage}-animation
+  webpackIncludeModules: true
+  webpack:
+    webpackConfig: ./webpack.config.js
+    packager: 'npm' # Packager that will be used to package your external modules
+layers:
+  ffmpeg:
+    path:
+      layer
+
+functions:
+  verifyForgotJwt:
+    handler: src/app/verifyForgotJwt.default
+    events:
+      - http:
+          path: /verifyforgotjwt
+          method: post
+          cors: true
+  authenticate:
+    handler: src/app/authenticate.default
+    events:
+      - http:
+          path: /authenticate
+          method: post
+          cors:
+            allowCredentials: true
+            origin: ${env:ORIGIN}
+  refreshAccess:
+    handler: src/app/refreshAccess.default
+    events:
+      - http:
+          path: /refreshaccess
+          method: post
+          cors:
+            allowCredentials: true
+            origin: ${env:ORIGIN}
+  adminInvalidateJwts:
+    handler: src/app/adminInvalidateJwts.default
+    events:
+      - http:
+          path: /invalidate-jwts
+          method: post
+          cors:
+            allowCredentials: true
+            origin: ${env:ORIGIN}
+
+  #######################
+  # Download the plugin #
+  #######################
+  sendMail:
+    handler: src/app/sendMail.default
+  downloadPlugin:
+    handler: src/app/downloadPlugin.default
+    events:
+      - http:
+          path: /download_plugin
+          method: post
+          cors: true
+  #################################
+  # Image upload functions starts #
+  #################################
+  uploadAvatar:
+    handler: src/app/uploadAvatar.default
+    events:
+      - http:
+          path: /upload-avatar
+          method: post
+          cors: true
+  uploadBanner:
+    handler: src/app/uploadBanner.default
+    events:
+      - http:
+          path: /upload-banner
+          method: post
+          cors: true
+  uploadHeadline:
+    handler: src/app/uploadHeadline.default
+    events:
+      - http:
+          path: /upload-headline
+          method: post
+          cors: true
+  uploadInstructorBanner:
+    handler: src/app/uploadInstructorBanner.default
+    events:
+      - http:
+          path: /upload-instructor-banner
+          method: post
+          cors: true
+  uploadPost:
+    handler: src/app/uploadPost.default
+    events:
+      - http:
+          path: /upload-post
+          method: post
+          cors: true
+  notesImageUpload:
+    handler: src/app/notesImageUpload.default
+    events:
+      - http:
+          path: /upload-image
+          method: post
+          cors: true
+
+  ###############################
+  # Image upload functions Ends #
+  ###############################
+  forgotPassword:
+    handler: src/app/forgotPassword.default
+    events:
+      - http:
+          path: /forgotpassword
+          method: post
+          cors: true
+  resetPassword:
+    handler: src/app/resetPassword.default
+    events:
+      - http:
+          path: /reset-password
+          method: get
+          cors: true
+  ####################
+  # Maya Submissions #
+  ####################
+  mayaLogin:
+    handler: src/maya/login.default
+    events:
+      - http:
+          path: /mlogin
+          method: post
+          cors: true
+  mayaSubmit:
+    handler: src/maya/submit.default
+    events:
+      - http:
+          path: /msubmit
+          method: get
+          cors: true
+  mayaConfirm:
+    handler: src/maya/confirm.default
+    events:
+      - http:
+          path: /mconfirm
+          method: post
+          cors: true
+    layers:
+      - {Ref: FfmpegLambdaLayer}
+  ####################
+  #    Paperwork     #
+  ####################
+  NDA:
+    handler: src/paperwork/NDA.default
+    timeout: 60
+    events:
+      - http:
+          path: /paperwork/nda
+          method: post
+          cors: true
+    layers:
+      - arn:aws:lambda:us-east-1:347599033421:layer:amazon_linux_fonts:1
+      - arn:aws:lambda:us-east-1:764866452798:layer:libreoffice-brotli:1
+  ####################
+  # Stripe Functions #
+  ####################
+  # https://stripe.com/docs/billing/subscriptions/overview
+  # Reference:
+  # https://github.com/stripe-samples/subscription-use-cases/blob/master/usage-based-subscriptions/server/node/server.js
+  stripeCreateSubscription:
+    handler: src/stripe/createSubscription.default
+    events:
+      - http:
+          path: /create-subscription
+          method: post
+          cors: true
+  stripeCancelSubscription:
+    handler: src/stripe/cancelSubscription.default
+    events:
+      - http:
+          path: /cancel-subscription
+          method: post
+          cors: true
+  stripeRetryInvoice:
+    handler: src/stripe/retryInvoice.default
+    events:
+      - http:
+          path: /retry-invoice
+          method: post
+          cors: true
+  stripeRetrieveUpcomingInvoice:
+    handler: src/stripe/retrieveUpcomingInvoice.default
+    events:
+      - http:
+          path: /upcoming-invoice
+          method: post
+          cors: true
+  stripeRetrieveSubscriptionInfo:
+    handler: src/stripe/retrieveSubscriptionInfo.default
+    events:
+      - http:
+          path: /subscription-info
+          method: post
+          cors: true
+  stripeRetrieveCustomerPaymentMethod:
+    handler: src/stripe/retrieveCustomerPaymentMethod.default
+    events:
+      - http:
+          path: /retrieve-customer-payment-method
+          method: post
+          cors: true
+  stripeWebhook:
+    handler: src/stripe/webhook.default
+    events:
+      - http:
+          path: /stripe-hook
+          method: post
+          cors: true
+  ##################
+  # MUX Functions  #
+  ##################
+  muxWebhook:
+    handler: src/mux/webhook.default
+    events:
+      - http:
+          path: /mux-hook
+          method: post
+          cors: true
+  muxFeedbackVideoUpload:
+    handler: src/mux/uploadFeedbackVideo.default
+    events:
+      - http:
+          path: /upload-video
+          method: post
+          cors: true
+  muxProContentVideoUpload:
+    handler: src/mux/uploadProContentVideo.default
+    events:
+      - http:
+          path: /upload-pro-content-video
+          method: post
+          cors: true
+  muxGenerateVideo:
+    handler: src/mux/generateVideo.default
+    events:
+      - s3:
+          bucket: ft-${opt:stage}-video
+          event: s3:ObjectCreated:*
+          rules:
+            - suffix: .mp4
+          existing: true
+  ###################
+  # CRON Functions  #
+  ###################
+  cronRefillFeedbackRequests:
+    handler: src/cron/refillFeedbackRequests.default
+    events:
+      - schedule: cron(0 10 1 * ? *)
+  cronRemoveInactiveUsers:
+    handler: src/cron/removeInactiveUsers.default
+    events:
+      - schedule: rate(1 day)
+  cronRemoveExpiredTokens:
+    handler: src/cron/removeExpiredTokens.default
+    events:
+      - schedule: rate(1 day)
+  cronCreateTumbleweed:
+    handler: src/cron/createTumbleweed.default
+    events:
+      - schedule: rate(1 day)
+  cronReleaseFeedback:
+    handler: src/cron/releaseFeedbackFromUnresponsiveInstructors.default
+    events:
+      - schedule: rate(10 minutes)
+  test:
+    handler: 'src/test/getRequest.default'
+    layers:
+      - arn:aws:lambda:us-east-1:764866452798:layer:libreoffice-gzip:1
+    events:
+      - http:
+          path: /test
+          method: get
+          cors: true
+plugins:
+  - serverless-webpack

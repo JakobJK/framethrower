@@ -1,0 +1,12 @@
+begin;
+  select plan(8);
+  select columns_are('framethrower_hidden', 'upload', array['id', 'profile_id', 'created_at', 'file_url', 'purpose'], 'id, profile_id, created_at, file_url, and purpose are the columns');
+  select col_is_pk('framethrower_hidden', 'upload', 'id', 'id is the primary key');
+  select col_is_fk('framethrower_hidden', 'upload', 'profile_id', 'profile_id is a foreign key');
+  select col_type_is('framethrower_hidden', 'upload', 'id', 'uuid', 'id is the type of uuid');
+  select col_type_is('framethrower_hidden', 'upload', 'profile_id', 'uuid', 'upload_id is the type of uuid');
+  select col_type_is('framethrower_hidden', 'upload', 'created_at', 'timestamp with time zone', 'created_at is the type of "timestamp with time zone"');
+  select col_type_is('framethrower_hidden', 'upload', 'file_url', 'text', 'file_url is the type of text');
+  select col_type_is('framethrower_hidden', 'upload', 'purpose', 'framethrower_public.file_upload_purpose', 'file_url is the type of text');
+  select * from finish();
+rollback;

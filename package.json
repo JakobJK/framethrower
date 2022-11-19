@@ -1,0 +1,46 @@
+{
+  "name": "framethrower",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "prettier": "prettier --write \"packages/*/src/**/*.{js,jsx,ts,tsx,css,scss,graphql,gql,md,html,json,yaml}\"",
+    "prettier:check": "prettier --check \"packages/*/src/**/*.{js,jsx,ts,tsx,css,scss,graphql,gql,md,html,json,yaml}\"",
+    "test": "jest --testPathPattern ./__tests__/",
+    "start": "docker-compose up",
+    "restart": "docker-compose restart",
+    "restart:api": "aws ecs update-service --force-new-deployment --service ft-production-api --cluster ft-production-cluster",
+    "stop": "docker-compose down",
+    "sqitch": "./sqitch.sh",
+    "test_sqitch": "PGPASSWORD=framethrower pg_prove -h localhost -U framethrower -p 2345 -U framethrower packages/sqitch/tests/**/*.sql",
+    "test_app": "jest __tests__",
+    "terraform": "docker-compose -f infrastructure/production/docker-compose.yml run --rm terraform"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JakobJK/framethrower.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JakobJK/framethrower/issues"
+  },
+  "homepage": "https://github.com/JakobJK/framethrower#readme",
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "jest": "^24.8.0",
+    "prettier": "^1.18.2",
+    "puppeteer": "^1.17.0",
+    "rimraf": "^2.6.3",
+    "lerna": "^3.22.1"
+  },
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "pg": "^8.5.1",
+    "quill-image-drop-and-paste": "^1.1.1"
+  }
+}

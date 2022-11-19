@@ -1,0 +1,1 @@
+delete from framethrower_hidden.issued_tokens where expire_at < now()

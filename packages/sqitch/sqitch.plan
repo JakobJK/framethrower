@@ -1,0 +1,152 @@
+%syntax-version=1.0.0
+%project=framethrower
+%uri=https://github.com/framethrower-io/framethrower
+
+framethrower_public.schema 2020-02-22T00:30:20Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the framethrower public schema
+framethrower_private.schema 2020-02-22T01:13:08Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the framethrower_private schema
+framethrower_hidden.schema 2020-02-22T01:14:46Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the framethrower_hidden schema
+framethrower.role.framethrower_postgraphile 2020-02-22T01:18:00Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the postgraphile role
+framethrower.extension.pgcrypto 2020-02-22T01:25:51Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the pgcrypto extension
+framethrower.extension.uuid-ossp 2020-02-22T01:32:32Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the extension uuid-ossp
+framethrower.extension.unaccent 2020-02-22T01:53:48Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding unaccent extension
+framethrower.role.framethrower_anonymous 2020-02-22T01:58:56Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the anonymous role
+framethrower.role.framethrower_user 2020-02-22T01:59:33Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the user role
+framethrower.role.framethrower_moderator 2020-02-22T02:00:24Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the moderator role
+framethrower.role.framethrower_banned 2020-07-20T15:18:19Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the role of a banned user. Cannot do anything
+framethrower.role.framethrower_inactive 2020-07-20T15:19:40Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the user role of inactive. Which is the state before you submit your first animation
+framethrower.role.framethrower_admin 2020-02-22T02:00:38Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the admin role
+framethrower_public.type.user_role 2020-04-08T22:26:38Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the type for different user roles
+framethrower_public.type.profile_premium 2020-04-08T07:52:29Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creates a custom enum list for different premium types
+framethrower_hidden.function.generate_short_unique_id 2020-02-29T19:00:24Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # This is a function for generating short url safe IDs alternatively to ugly UUIDs
+framethrower_public.table.premium_definition 2020-03-29T20:27:05Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the table of the different privileges of users
+framethrower_public.table.profile 2020-02-22T02:03:28Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the profile table
+framethrower_private.table.profile_secrets 2020-02-23T02:50:56Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the table to store secure info regarding a profile
+framethrower_public.type.file_upload_purpose 2020-07-11T20:14:10Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the file type so you can define how the uploaded file will be used
+framethrower_public.type.instructor_availability 2021-02-08T18:56:56Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating an enum for instructors to establish their availability
+framethrower_public.type.instructor_status 2020-07-07T16:04:34Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the type instructor status to be passed into the jwtc
+framethrower_public.type.publish_status 2021-04-25T17:21:11Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating an enum that can be used to delete, block or unpublish your work
+framethrower_public.table.instructor 2020-03-29T19:15:22Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Create the tables to keep track of instructors
+framethrower_public.table.news 2020-02-23T04:38:04Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the table for news
+framethrower_public.type.discipline 2021-04-23T05:35:27Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a type to establish a discipline for each animation project
+framethrower_public.table.animation 2020-02-23T04:52:12Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the table which will contain the animations
+framethrower_public.table.submission 2020-02-23T05:10:56Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the submission table for the public schema
+framethrower_public.table.note 2020-02-23T05:42:48Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the table for animation notes
+framethrower_public.type.premium_status 2020-07-12T20:45:12Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the enum type to keep track of premium type statuses
+framethrower_private.table.stripe_customer 2021-03-29T01:27:02Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a table to contain the stripe information for self purchased pro membership
+framethrower_public.table.company 2021-03-28T21:58:15Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a table to keep track of companies for our website
+framethrower_public.table.premium 2020-04-08T22:43:15Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a table for keeping track of premium accounts
+framethrower_private.table.global_settings 2020-06-12T20:26:52Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a table to contain current state of the backend application
+framethrower_public.type.jwt_token 2020-02-23T06:46:06Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the JWT type for authentication
+framethrower_public.function.register_profile 2020-02-23T07:32:59Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the function for register a user
+framethrower_public.function.authenticate 2020-02-23T07:27:28Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding authentication function
+framethrower_public.function.slugify 2020-02-25T01:18:54Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creates the function to generate slugs of news titles
+framethrower_public.function.current_profile 2020-02-29T23:27:53Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the function to get current logged in profile
+framethrower_public.function.news_by_slug 2020-03-01T00:38:34Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding a function to retrieve a news article by its slug
+framethrower_public.function.register_news 2020-03-01T01:12:44Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Function for registering news
+framethrower_hidden.table.upload 2020-03-01T06:45:34Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding a table to keep track of uploaded files
+framethrower_public.table.news_comment 2020-03-01T07:01:23Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the table to contain the comments on news
+framethrower_public.table.note_comment 2020-03-01T07:12:09Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the table for containing comments to notes
+framethrower_public.type.supported_software 2020-03-01T08:32:49Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the enum type for which software we support
+framethrower_public.type.animation_submission 2021-03-10T01:38:00Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # creating a composite type which will be the return value of register_animation and register_submission
+framethrower_public.function.register_animation 2020-03-02T23:11:17Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the function for registering an animation
+framethrower_public.function.register_submission 2020-03-02T23:11:45Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding the code for registering a submission
+framethrower_public.function.register_note 2020-03-22T07:28:19Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function for adding a note to an animation
+framethrower_public.function.register_note_comment 2020-03-22T07:29:29Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the function for registering a comment to a not
+framethrower_public.table.headline 2020-04-01T23:51:01Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creates the table to hold the headline
+framethrower_public.function.profile_is_instructor 2020-04-08T07:17:06Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A column to check if a user is an instructor
+framethrower_public.function.profile_premium_type 2020-04-08T22:57:13Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creates a function to get the type of premium a user is
+framethrower_public.function.submission_is_latest 2020-04-16T06:42:04Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that will check to see if the current submission is the latest to verify if you can post notes to it
+framethrower_public.function.change_password 2020-05-03T21:17:11Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creates the function to change password
+framethrower_public.table.profile_social 2020-06-09T18:42:01Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the table to contain users social links
+framethrower_public.function.get_profile_by_username 2020-06-15T00:33:24Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to get profile by username
+framethrower_public.function.is_registration_open 2020-06-17T15:01:03Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to check if registration is available
+framethrower_public.function.register_profile_details 2020-06-30T10:50:19Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the function for adding the profile details for a user
+framethrower_public.function.register_reel 2020-07-01T14:41:21Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to add a reel for the currently logged in user
+framethrower_public.function.register_news_comment 2020-07-02T13:58:44Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the function for making a comment on a news post
+framethrower_public.function.change_user_role 2020-07-06T15:58:29Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creates the function that allows admin to change user roles
+framethrower_public.type.feedback_response_status 2020-07-07T12:14:22Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the type used for defining the status of a feedback entry
+framethrower_public.type.feedback_request_status 2020-07-11T09:28:31Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the enum type representing the status of the feedback request
+framethrower_public.table.feedback_request 2020-07-07T12:07:16Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the table containing proffessional feedback
+framethrower_public.table.feedback_response 2020-07-11T09:06:08Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the table that contains responses to feedback requests
+framethrower_public.function.claim_feedback 2020-07-08T17:52:05Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the function for instructors to claim the right to give the feedback on an animation
+framethrower_public.function.get_claimed_pending_feedback 2020-07-09T05:55:31Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the function so an instructor can retrieve the current animation they are suppose to give feedback to
+framethrower_public.function.instructor_currently_responding 2020-07-09T15:35:29Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to check if the logged in instructor is already suppose to be responding to a pending feedback
+framethrower_public.function.current_instructor 2020-07-09T15:50:37Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to retrieve the current logged in instructor
+framethrower_public.function.instructor_is_tilted 2020-07-09T18:59:09Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to check if an instructor is tilted (unable to make a feedback video)
+framethrower_public.function.register_feedback_response 2020-07-24T23:21:09Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function for instructors to provide feedback_response for a given feedback_request
+framethrower_public.function.refresh_jwt_token 2020-08-10T18:11:43Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that allows a users token to be refreshed!
+framethrower_public.function.submission_current_profile_has_replied 2021-01-31T23:07:30Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that will tell if the current logged in user has replied to the current submission
+framethrower_public.view.v_feedback 2020-07-07T12:35:43Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the view for dealing with permissions to access the video
+framethrower_public.view.v_instructor_pool 2020-07-07T20:33:23Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the pool view for getting submissions which are ready for review, while sorting out the ones that are currently being reviewed
+framethrower_public.view.v_admin_member 2020-07-03T16:49:23Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the view for seeing information on members
+framethrower_public.view.v_admin_instructor 2020-07-10T17:53:58Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the view for admins to get information about an instructor
+framethrower_public.view.v_instructor_feedback 2020-07-09T22:05:28Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view for instructors to have a list of all of their feedbacks
+framethrower_public.view.v_animation 2020-07-21T19:26:01Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the view for the main animation page
+framethrower_public.view.v_admin_feedback_overview 2020-07-26T05:31:19Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view to display all information regarding to feedback
+framethrower_public.view.v_admin_feedback_overview_collapsed 2020-07-26T07:09:48Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the view, which displays the amount of feedbacks from each instructor in a given period
+framethrower_public.view.v_pro_list 2020-07-28T07:35:00Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the list of pro feedback which pro users can see
+framethrower_public.view.v_animation_preview 2020-04-12T05:23:08Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating the view for the table
+framethrower_public.function.animation_get_submission_amounts 2020-11-16T11:47:59Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A simple function that will return the amount of submission an animation has
+framethrower_public.function.profile_daily_posts 2020-11-18T09:49:43Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A function that will give the user the amount of daily submissions they can make
+framethrower_public.function.profile_can_submit 2020-11-18T09:56:45Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A function to verify if a user can make a submission
+framethrower_public.function.animation_pending_feedback 2020-11-21T06:44:08Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Returns true if the animation is currently pending feedback from an instructor
+framethrower_public.function.profile_get_built_in_feedback 2020-11-21T09:09:26Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A function to retrieve the amount of feedbacks a user has left
+framethrower_public.function.register_headline 2020-11-22T20:40:24Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to register headlines
+framethrower_public.function.submission_has_pro_feedback 2020-12-02T23:01:23Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to check if there exists pro feedback on the specific submission
+framethrower_hidden.table.submission_rejected 2021-01-03T07:57:27Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a table to store submissions attempts that has been rejected
+framethrower_public.function.register_new_avatar 2021-01-15T15:15:17Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A function that will update the users avatar
+framethrower_public.function.register_new_banner 2021-01-15T16:02:08Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A function to register your new banner update
+framethrower_public.function.update_own_note 2021-01-28T08:11:50Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function allows users to update their own notes
+framethrower_public.function.update_own_note_comment 2021-01-29T05:11:26Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creaing a function to edit your own note comments
+framethrower_public.view.v_note 2021-01-31T11:41:49Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view for all peoples notes except your own
+framethrower_public.view.v_own_note 2021-01-31T11:42:27Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view for seeing the currently logged in users notes
+framethrower_hidden.table.mux_video 2021-02-04T14:16:33Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A table to keep track of files that will be transcoded utilizing mux.com
+framethrower_public.function.authenticate_by_username 2021-02-20T15:36:12Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that allows to authenticate by username
+framethrower_hidden.type.token_type 2021-03-07T21:13:08Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a custom enum to descripe the token type
+framethrower_hidden.table.issued_tokens 2021-03-07T21:08:02Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Table to keep track of short lived access_tokens and long lived refresh tokens
+framethrower_public.type.bundle_weed 2021-03-11T05:36:44Z Jakob Kousholt <jake@Jakobs-MacBook-Pro.local> # Creating the type that will be returned from the function register_tumbleweed
+framethrower_public.table.tumbleweed 2021-03-11T05:26:36Z Jakob Kousholt <jake@Jakobs-MacBook-Pro.local> # Creating a table called tumbleweed to refer to submissions that does not receieve any notifications. Triggered by a lambda function!
+framethrower_public.function.register_tumbleweed 2021-03-11T05:32:26Z Jakob Kousholt <jake@Jakobs-MacBook-Pro.local> # Creating a function that will create a tumbleweed notification
+framethrower_hidden.type.feature_flag_status 2021-03-26T18:38:00Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a custom enum to be define the state of a feature within the feature flags table
+framethrower_hidden.table.feature_flag 2021-03-26T18:34:10Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a table to contain information regarding activated features
+framethrower_private.table.company_pro_agreement 2021-03-29T00:16:39Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a table which will mostly be used by schools to activate pro memberships
+framethrower_public.table.company_admin_users 2021-03-29T07:18:13Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a private table to keep track of the admins of the companies
+framethrower_public.function.profile_get_admin_company 2021-03-29T16:02:37Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A function that will return the company name of the company the user is an administrator of
+framethrower_public.table.alter.premium 2021-04-18T21:04:51Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Alterting the existing table premium
+framethrower_public.function.register_social 2021-04-20T21:51:10Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to register your links to social platforms
+framethrower_public.function.admin_create_company 2021-04-23T15:33:38Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Making a function that allow you to create a company
+framethrower_public.function.delete_own_animation 2021-04-25T23:37:35Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that will to delete your own animation
+framethrower_public.function.update_animation_title 2021-04-26T13:24:23Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that will allow a user to update their title of their own animations
+framethrower_public.function.update_own_submission_comment 2021-05-27T16:34:06Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding a function that allow animators to update their submissions comment
+framethrower_public.function.delete_own_submission 2021-05-27T16:34:37Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that allows users to delete their own submissions
+framethrower_public.function.delete_own_note 2021-05-29T17:45:43Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that will allow users to delete their own notes
+framethrower_public.function.delete_own_note_comment 2021-05-29T17:46:02Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that will allow users to delete their own note comment
+framethrower_public.function.delete_own_news_comment 2021-05-29T17:46:34Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that will allow users to delete comment they have left on a get psyched post
+framethrower_public.function.update_own_news_comment 2021-05-29T18:41:02Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Adding a functionality so a user can update their news comment
+framethrower_public.function.request_profeedback 2021-05-30T16:10:17Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A function that allow pro users to request feedback
+framethrower_public.table.company_pro_group 2021-06-04T19:01:58Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a table to allow companies to create group for their pro users
+framethrower_public.table.company_group_month 2021-06-04T21:27:09Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a table to enable schools to make adjustments on a per monthly basis
+framethrower_public.table.company_group_premium 2021-06-05T15:37:23Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a table that will contain the relatianship between companies pro user and their groups
+framethrower_public.view.v_pro_own_feedback 2021-06-09T13:05:12Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view for pro users to see their own feedback
+framethrower_public.function.company_create_group 2021-06-10T07:49:29Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function for company users to create groups
+framethrower_public.function.company_delete_group 2021-06-12T06:53:09Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that allows an admin of a company to delete an existing group
+framethrower_public.function.company_admin_add_premium_to_group 2021-06-13T13:31:24Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Allowing a company admin to associate a premium entry to be associated with a company group
+framethrower_public.function.company_admin_remove_premium_from_group 2021-06-14T03:49:20Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that allows admins to remove a user from a group
+framethrower_public.function.company_admin_add_month_to_group 2021-06-14T06:01:02Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that will allow an admin of a company to add a month to an existing group
+framethrower_public.view.v_company_admin_months 2021-06-14T08:09:18Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view that will allow admins of companies to see the schedule
+framethrower_public.function.animation_get_latest_submission 2021-06-15T06:30:38Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to get latest submission from animation
+framethrower_public.function.company_admin_remove_month_from_group 2021-06-16T07:26:18Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that will an admin of a company to remove a month from a schedule
+framethrower_public.function.instructor_update_availability 2021-06-18T21:46:59Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to allow instructors to update their own availability
+framethrower_public.function.instructor_update_bio 2021-06-18T21:47:28Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that enables instructors to update their own bio
+framethrower_public.function.instructor_register_banner 2021-06-18T21:48:05Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that allows instructors to update their own banner
+framethrower_public.view.v_instructor 2021-02-08T19:03:57Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view to get a list of the active instructors
+framethrower_public.view.v_pro_membership 2021-02-18T15:59:36Z Jakob Kousholt <jake@Jakobs-MacBook-Pro.local> # Creating a view for your own pro membership
+framethrower_public.view.v_instructor_settings 2021-06-19T02:45:39Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # A view for instructors to get their information regarding settings
+framethrower_public.function.admin_update_post 2021-06-20T02:41:14Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to allow admins to update a post
+framethrower_hidden.table.news_pro_content 2021-06-23T15:17:40Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # creating a table for containing the pro content for a get psyched post
+framethrower_public.view.v_post 2021-06-23T16:17:17Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view for get psyched posts
+framethrower_public.function.admin_edit_instructor_status 2021-06-28T13:21:49Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function to adjust instructors status
+framethrower_public.function.admin_promote_to_instructor 2021-06-28T19:52:13Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a function that will allow admins to promote profiles to instructors
+framethrower_public.view.v_company_admin_groups 2021-06-12T22:06:56Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view for the admins of a company to see all of their groups
+framethrower_public.view.v_company_admin_members 2021-06-13T10:36:57Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view to show companies admins who is their members
+framethrower_public.view.v_company_admin 2021-03-29T17:31:57Z Jakob Kousholt <jake@Jakobs-MBP.fios-router.home> # Creating a view for the company admin!

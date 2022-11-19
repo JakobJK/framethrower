@@ -1,0 +1,9 @@
+node_modules
+lerna_debug.log
+.DS_store
+.env
+*.pyc
+
+docker/data/*
+docker/private/*
+!docker/private/.gitkeep

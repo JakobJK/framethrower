@@ -1,0 +1,35 @@
+// BETTERER RESULTS V2.
+exports[`Typescript Type Checks`] = {
+  value: `{
+    "src/context/Authenticated.tsx:1795011380": [
+      [1, 25, 12, "Module \'\\"@apollo/client\\"\' has no exported member \'ErrorHandler\'.", "446840613"],
+      [38, 20, 5, "Parameter \'value\' implicitly has an \'any\' type.", "189936718"],
+      [58, 36, 11, "No value exists in scope for the shorthand property \'onAuthError\'. Either declare one or provide an initializer.", "1637821076"],
+      [79, 16, 5, "Property \'phase\' does not exist on type \'never\'.", "187946346"]
+    ],
+    "src/context/makeClient.ts:1300353269": [
+      [22, 44, 10, "Property \'statusCode\' does not exist on type \'Error | ServerError | ServerParseError\'.\\n  Property \'statusCode\' does not exist on type \'Error\'.", "3382497788"],
+      [38, 22, 5, "Binding element \'token\' implicitly has an \'any\' type.", "183304158"],
+      [38, 29, 11, "Binding element \'onAuthError\' implicitly has an \'any\' type.", "1637821076"],
+      [40, 27, 22, "Type \'ApolloLink\' is not assignable to type \'ApolloLink | RequestHandler\'.\\n  Type \'ApolloLink\' is missing the following properties from type \'ApolloLink\': onError, setOnError", "3344278573"],
+      [40, 51, 15, "Type \'ApolloLink\' is not assignable to type \'ApolloLink | RequestHandler\'.\\n  Type \'import(\\"./node_modules/apollo-link/lib/link\\").ApolloLink\' is not assignable to type \'import(\\"./node_modules/@apollo/client/link/core/ApolloLink\\").ApolloLink\'.", "2183238583"],
+      [40, 68, 4, "Type \'BatchHttpLink\' is not assignable to type \'ApolloLink | RequestHandler\'.\\n  Type \'BatchHttpLink\' is missing the following properties from type \'ApolloLink\': onError, setOnError", "2087656645"]
+    ],
+    "src/pages/About/About.tsx:2555065694": [
+      [12, 35, 17, "Element implicitly has an \'any\' type because expression of type \'string\' can\'t be used to index type \'{}\'.\\n  No index signature with a parameter of type \'string\' was found on type \'{}\'.", "2707993560"],
+      [89, 16, 17, "Element implicitly has an \'any\' type because expression of type \'string\' can\'t be used to index type \'{}\'.\\n  No index signature with a parameter of type \'string\' was found on type \'{}\'.", "2416838985"],
+      [89, 36, 14, "Element implicitly has an \'any\' type because expression of type \'string\' can\'t be used to index type \'{}\'.\\n  No index signature with a parameter of type \'string\' was found on type \'{}\'.", "686364629"],
+      [96, 42, 14, "Element implicitly has an \'any\' type because expression of type \'string\' can\'t be used to index type \'{}\'.\\n  No index signature with a parameter of type \'string\' was found on type \'{}\'.", "686364629"],
+      [99, 13, 14, "Element implicitly has an \'any\' type because expression of type \'string\' can\'t be used to index type \'{}\'.\\n  No index signature with a parameter of type \'string\' was found on type \'{}\'.", "686364629"]
+    ],
+    "src/pages/GettingStarted/GettingStarted.tsx:853769305": [
+      [21, 28, 17, "Element implicitly has an \'any\' type because expression of type \'string\' can\'t be used to index type \'{}\'.\\n  No index signature with a parameter of type \'string\' was found on type \'{}\'.", "2707993560"]
+    ],
+    "src/pages/Profile/Social.tsx:910788605": [
+      [17, 63, 5, "Property \'INSTAGRAM\' does not exist on type \'{ instagram: string; twitter: string; fb: string; linkedin: string; artstation: string; vimeo: string; youtube: string; www: string; na: string; }\'. Did you mean \'instagram\'?", "178823234"]
+    ],
+    "src/util/createImageHandler.ts:3496475405": [
+      [32, 15, 9, "\'imageData\' refers to a value, but is being used as a type here. Did you mean \'typeof imageData\'?", "1925830002"]
+    ]
+  }`
+};

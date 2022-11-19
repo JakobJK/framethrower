@@ -1,0 +1,1 @@
+select framethrower_public.authenticate($1, $2);

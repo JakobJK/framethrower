@@ -1,0 +1,45 @@
+{
+  "name": "serverless",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy:dev": "echo \"Hello! this need to be set\"",
+    "deploy:staging": "sls deploy --stage staging",
+    "deploy:prod": "echo \"Hello! this need to be set\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@middy/core": "^1.5.0",
+    "@middy/http-error-handler": "^1.5.0",
+    "@middy/http-event-normalizer": "^1.5.0",
+    "@middy/http-json-body-parser": "^1.5.0",
+    "@mux/mux-node": "^3.1.3",
+    "@shelf/aws-lambda-brotli-unpacker": "^1.0.0",
+    "aws-sdk": "^2.814.0",
+    "axios": "^0.21.1",
+    "carbone": "^3.1.0",
+    "cookie": "^0.4.1",
+    "fluent-ffmpeg": "^2.1.2",
+    "html-loader": "^2.1.2",
+    "http-errors": "^1.8.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.1",
+    "pg": "^8.5.1",
+    "pg-sql2": "^4.11.0",
+    "redis": "^3.1.2",
+    "shortid": "^2.2.16",
+    "stripe": "^8.129.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "babel-loader": "^8.2.2",
+    "raw-loader": "^4.0.2",
+    "serverless-webpack": "^5.3.5",
+    "webpack": "^5.11.0",
+    "webpack-node-externals": "^2.5.2"
+  }
+}

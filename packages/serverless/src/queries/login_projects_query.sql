@@ -1,0 +1,4 @@
+select animation_id as id, created_at, totalCount, pending_feedback, title, start_frame, end_frame from (select distinct on (sub.animation_id) sub.animation_id,
+  framethrower_public.animation_get_submission_amounts(anim.*) as totalCount,
+  framethrower_public.animation_pending_feedback(anim.*) as pending_feedback,
+   anim.profile_id, sub.created_at, title, start_frame, end_frame from framethrower_public.submission sub join framethrower_public.animation anim ON anim.id = sub.animation_id where anim.status = 'published' and anim.profile_id=$1 order by sub.animation_id, created_at desc) t order by created_at desc limit $2

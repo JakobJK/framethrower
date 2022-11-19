@@ -1,0 +1,75 @@
+version: '3.7'
+
+x-package: &package
+  restart: always
+  build: ./docker
+  volumes:
+    - .:/home/node/framethrower
+
+services:
+  nginx:
+    container_name: framethrower-nginx
+    image: nginx:mainline
+    depends_on:
+      - postgraphile
+      - sbt
+      - pwa
+    ports:
+      - 80:80
+      - 443:443
+    restart: always
+    volumes:
+      - ./docker/nginx/local-pwa.framethrower.io+4.pem:/etc/nginx/local-pwa.framethrower.io+4.pem
+      - ./docker/nginx/local-pwa.framethrower.io+4-key.pem:/etc/nginx/local-pwa.framethrower.io+4-key.pem
+      - ./docker/nginx/conf.d:/etc/nginx/conf.d
+      - ./docker/nginx/proxy.conf:/etc/nginx/proxy.conf
+  redis:
+    container_name: framethrower-redis
+    image: redis:alpine
+    depends_on:
+      - postgres
+    ports:
+      - 6379:6379
+  postgres:
+    container_name: framethrower-postgres
+    image: postgres:11-alpine
+    env_file:
+      - ./docker/private/database.env
+    ports:
+      - 2345:5432
+    restart: always
+    volumes:
+      - ./docker/data:/var/lib/postgresql/data
+  postgraphile:
+    <<: *package
+    container_name: framethrower-postgraphile
+    command: wait-for-it --strict --timeout=0 postgres:5432 -- npm run start-dev
+    env_file:
+      - ./docker/private/postgraphile.env
+    depends_on:
+      - postgres
+      - redis
+    ports:
+      - 5000:5000
+    working_dir: /home/node/framethrower/packages/postgraphile
+  sbt:
+    <<: *package
+    container_name: framethrower-submit
+    command: wait-for-it --strict --timeout=0 postgraphile:5000 -- npm start
+    depends_on:
+      - postgraphile
+    ports:
+      - 4000:4000
+    working_dir: /home/node/framethrower/packages/submit
+  pwa:
+    <<: *package
+    container_name: framethrower-pwa
+    command: wait-for-it --strict --timeout=0 postgraphile:5000 -- npm start
+    env_file:
+      - ./docker/private/pwa.env
+    depends_on:
+      - postgraphile
+      - sbt
+    ports:
+      - 3000:3000
+    working_dir: /home/node/framethrower/packages/pwa

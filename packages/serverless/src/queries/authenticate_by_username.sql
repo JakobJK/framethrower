@@ -1,0 +1,1 @@
+select framethrower_public.authenticate_by_username($1, $2);
